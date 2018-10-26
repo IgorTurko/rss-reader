@@ -4,7 +4,7 @@
   "description": "Simple site gathering statuses for few different services",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open --history-api-fallback",
     "build": "webpack --mode production"
   },
   "repository": {
