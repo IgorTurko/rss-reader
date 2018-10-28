@@ -5,8 +5,6 @@ const defaultState = {
 }
 
 export function datadogReducer(state = defaultState, action) {
-    console.log('aaa', action)
-
     switch (action.type) {
         case FETCH_DATA:
             return {

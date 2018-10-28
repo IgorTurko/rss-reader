@@ -1,22 +1,24 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
-import { store, history } from "./state/store";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { store } from "./state/store";
 
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 import AzureStatus from './components/AzureStatus';
-import DatadogStatus from './components/DatadogStatus';
+import DatadogStatus from './components/datadogStatus';
 
 const Root = () => (
     <Provider store={store}>
-        <Router history={history}>
+        <Router>
             <React.Fragment>
                 <Navbar />
-                <Switch>
-                    <Route path='/data-dog' component={DatadogStatus} />
-                    <Route path='/azure' component={AzureStatus} />
-                    <Redirect from='/' to='/data-dog' />
-                </Switch>
+                <main className="container">
+                    <Switch>
+                        <Route path='/data-dog' component={DatadogStatus} />
+                        <Route path='/azure' component={AzureStatus} />
+                        <Redirect from='/' to='/data-dog' />
+                    </Switch>
+                </main>
             </React.Fragment>
         </Router>
     </Provider>
