@@ -4,7 +4,7 @@
   "description": "Simple site gathering statuses for few different services",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --history-api-fallback",
+    "start": "webpack-dev-server --mode development --open --history-api-fallback --devtool source-map",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -19,10 +19,13 @@
   "homepage": "https://github.com/IgorTurko/rss-reader#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
@@ -33,12 +36,14 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rss-parser": "^3.5.2"
   }
 }
