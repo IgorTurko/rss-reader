@@ -1,19 +1,25 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../../state/datadog/actions';
+import Loader from '../loader';
+import { getData } from '../../state/rss/actions';
+import { DATADOG_RSS } from '../../config';
 import './DatadogStatus.css';
 
 class DatadogStatusComponent extends PureComponent {
     async componentDidMount() {
-        const { onFetchData } = this.props;
-        console.log('did')
-        await onFetchData();
+        const { onGetData } = this.props;
+
+        await onGetData(DATADOG_RSS);
     }
+    
     render() {
-        const { feed } = this.props;
+        const { feed, loading } = this.props;
 
         return (
             <React.Fragment>
+            {
+                loading && <Loader />
+            }
             {
                 (feed || []).map(item => {
                     const logs = item.contentSnippet.split('.');
@@ -23,7 +29,7 @@ class DatadogStatusComponent extends PureComponent {
                             <div className="col">{item.title}</div>
                             <div className="col">
                             {
-                                (logs || []).map(log => (<p className="">{log}</p>))    
+                                (logs || []).map(log => (<p>{log}</p>))    
                             }
                             </div>
                         </div>
@@ -36,9 +42,9 @@ class DatadogStatusComponent extends PureComponent {
 }
 
 export default connect(
-    (state) => ({...state.datadog}),
-    (dispatch) => ({
-        onFetchData: () => dispatch(fetchData())
+    state => ({...state.rss[DATADOG_RSS]}),
+    dispatch => ({
+        onGetData: rss => dispatch(getData(rss))
     })
 
 )(DatadogStatusComponent);
