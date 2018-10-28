@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { store } from "./state/store";
 
 import Navbar from './components/navbar';
-import AzureStatus from './components/AzureStatus';
 import DatadogStatus from './components/datadogStatus';
+import AzureStatus from './components/azureStatus';
 
 const Root = () => (
     <Provider store={store}>

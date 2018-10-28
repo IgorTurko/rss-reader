@@ -1,24 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Loader from '../loader';
-import Info from '../info';
 import { getData } from '../../state/rss/actions';
-import { DATADOG_RSS } from '../../config';
-import './DatadogStatus.css';
+import { AZURE_RSS } from '../../config';
+import './AzureStatus.css';
 
-class DatadogStatusComponent extends PureComponent {
+class AzureStatusComponent extends PureComponent {
     async componentDidMount() {
         const { onGetData } = this.props;
 
-        await onGetData(DATADOG_RSS);
-
-        this.timer = setInterval(async () => {
-            await onGetData(DATADOG_RSS);
-        }, 10 * 60 * 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timer);
+        await onGetData(AZURE_RSS);
     }
 
     render() {
@@ -30,18 +21,15 @@ class DatadogStatusComponent extends PureComponent {
                 loading && <Loader />
             }
             {
-                !loading && <Info message="Automatic refresh of status once per 10 minutes." />
-            }
-            {
                 (feed || []).map(item => {
+                    const logs = item.contentSnippet.split('.');
+
                     return (
-                        <div className="row" key={item.guid}>
+                        <div className="row">
                             <div className="col">{item.title}</div>
                             <div className="col">
                             {
-                                (item.contentSnippet.split('.') || []).map((log, i) => (
-                                    <p key={`${item.guid}_${i}`}>{log}</p>
-                                ))    
+                                (logs || []).map(log => (<p>{log}</p>))    
                             }
                             </div>
                         </div>
@@ -54,9 +42,9 @@ class DatadogStatusComponent extends PureComponent {
 }
 
 export default connect(
-    state => ({...state.rss[DATADOG_RSS]}),
+    state => ({...state.rss[AZURE_RSS]}),
     dispatch => ({
         onGetData: rss => dispatch(getData(rss))
     })
 
-)(DatadogStatusComponent);
+)(AzureStatusComponent);

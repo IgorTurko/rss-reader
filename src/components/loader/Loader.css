@@ -1,0 +1,16 @@
+.loader-box {
+    border: 1px solid green;
+    border-radius: 7px;
+    color: green;
+    font-weight: bold;
+    padding: 10px 5px;
+    background-color: lightgreen;
+    text-align: center;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    width: 100px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}

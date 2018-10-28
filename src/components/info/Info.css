@@ -1,0 +1,9 @@
+.info-box {
+    border: 1px solid orange;
+    border-radius: 7px;
+    color: orange;
+    font-weight: bold;
+    padding: 10px 5px;
+    background-color: floralwhite;
+    text-align: center;
+}
