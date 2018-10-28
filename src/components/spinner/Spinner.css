@@ -1,10 +1,5 @@
-.loader-box {
-    border: 1px solid green;
-    border-radius: 7px;
-    color: green;
-    font-weight: bold;
+.spinner-box {
     padding: 10px 5px;
-    background-color: lightgreen;
     text-align: center;
     position: fixed;
     z-index: 10;
