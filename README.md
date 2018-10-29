@@ -55,7 +55,7 @@ Now for each log's type there is separate page. However it whould be muсh easie
 - crete new component under `./components/logs` as example use `DatadogLogComponent`. This new component implement `render props` pattern which means you only need to describe UI and connect component to state. All main logic already implemented in `LogWrapperComponent`.
 - open `Root.js` and add new `Route` with recently created component.
 
-## TODO
+## TODO or nice to have
 
 - **Azure show logs not implemented:** [Azure](https://azure.microsoft.com/en-us/status/) rss feeds has no recent data. That is why it was not possible to bind data with UI.
 
@@ -64,6 +64,8 @@ Now for each log's type there is separate page. However it whould be muсh easie
 - **Interval update:** Right now each page refreshed once per 10 minutes and this value hardcoded in the code. It would be good to move this dropdown with list of minutes to UI.
 
 - **Send all requests to a single html page:** Develpment mode use `webpack-dev-server` with flag `--history-api-fallback` which returns `index.html` for any request. For [demo](https://igorturko.github.io) which is located on github pages I did not implement this. That is why any other url except root [https://igorturko.github.io](https://igorturko.github.io) will returns 404.
+
+- **Localization:** If we would need to continue work on this product ofcourse it would be great to have localization.
 
 ## Live demo
 
