@@ -69,7 +69,7 @@ Now for each log's type there is separate page. However it whould be muсh easie
 
 ## Live demo
 
-Live demo you can find on github pages [here](https://igorturko.github.io):
+Live demo you can find on github pages [here](https://igorturko.github.io)
 
 ## Author
 - [@IgorTurko](https://github.com/IgorTurko)
