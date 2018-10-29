@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { store } from "./state/store";
 
 import Navbar from './components/navbar';
-import { DatadogLog, AzureLog } from './components/logs';
+import { DatadogLog, AzureLog } from './components/log';
 
 const Root = () => (
     <Provider store={store}>
