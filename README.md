@@ -52,7 +52,7 @@ Here is briefly description of what have been done and why:
 
 Now for each log's type there is separate page. However it whould be muсh easier to keep everything in one page (no routing, no cache needed) but it is how it is. So if later there will be need to add new page with logs just do:
 
-- crete new component under `./components/logs` as example use `DatadogLogComponent`. This new component implement `render props` pattern which means you only need to describe UI and connect component to state. All main logic already implemented in `LogWrapperComponent`.
+- crete new component under `./components/log` as example use `datadogLogComponent`. This new component implement `render props` pattern which means you need only to describe UI and connect component to the state. All main logic already implemented in `LogWrapperComponent`.
 - open `Root.js` and add new `Route` with recently created component.
 
 ## TODO or nice to have
